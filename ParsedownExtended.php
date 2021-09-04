@@ -876,8 +876,8 @@ class ParsedownExtended extends DynamicParent
         $block = DynamicParent::blockHeader($line);
         if (!empty($block)) {
             // Get the text of the heading
-            if (isset($block['element']['handler']['argument'])) {
-                $text = $block['element']['handler']['argument'];
+            if (isset($block['element']['text'])) {
+                $text = $block['element']['text'];
             }
 
             // Get the heading level. Levels are h1, h2, ..., h6
