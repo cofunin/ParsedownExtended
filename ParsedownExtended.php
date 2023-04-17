@@ -20,7 +20,7 @@ if (class_exists('ParsedownExtra')) {
 class ParsedownExtended extends DynamicParent
 {
     public const VERSION = '1.1';
-    public const VERSION_PARSEDOWN_REQUIRED = '1.7';
+    public const VERSION_PARSEDOWN_REQUIRED = '1.8';
     public const ID_ATTRIBUTE_DEFAULT = 'toc';
     protected $tagToc = '[toc]';
 
@@ -558,11 +558,10 @@ class ParsedownExtended extends DynamicParent
             ':white_large_square:' => '⬜',
         ];
 
-        if (preg_match('/^(:)([^:]*?)(:)/', $excerpt['text'], $matches)) {
+        if (preg_match('/^(:)([^: ]*?)(:)/', $excerpt['text'], $matches)) {
             return [
                 'extent' => strlen($matches[0]),
                 'element' => [
-                    // Transliterate characters to ASCII
                     'text' => str_replace(array_keys($emojiMap), $emojiMap, $matches[0]),
                 ],
             ];
